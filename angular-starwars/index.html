@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body ng-app>
+<div ng-controller="WorldCtrl">
+    <ul>
+        <li ng-repeat="country in countries">
+            {{country.name}} has pop of: {{country.population}}
+            <mark>{{woldsPercentage(country.population)}}</mark>
+        </li>
+    </ul>
+
+    <mark>World pop: {{population}}</mark>
+</div>
+</body>
+</html>
