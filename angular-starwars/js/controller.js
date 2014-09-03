@@ -6,9 +6,14 @@
 //angular.module('Hello', []).
 
 
-$http.get('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=395zw9m7x4rethn4wupwyuyg').success(function(){
-    console.log(this);
-});
+var rottenTomatoes = angular.module('rottenTomatoes', ['ngResource']);
+
+rottenTomatoes.factory('Movie', ['$resource',
+  function($resource){
+    return $resource('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=395zw9m7x4rethn4wupwyuyg', {}, {
+      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    });
+  }]);
 
 var WorldCtrl = function($scope){
     $scope.population  = 200;
